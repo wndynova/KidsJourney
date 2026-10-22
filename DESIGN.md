@@ -59,3 +59,6 @@ User-approved on 22 October 2026. Use paper-like thumbnails regenerated from val
 
 ## English edition (22 October 2026)
 The user requested a full English edition before publishing. Keep Taman Main as the product name. All runtime UI, accessible names, stories, learning prompts, phonics, feedback, and bundled narration use English. Shared app.mjs components own labels; model.mjs owns the curriculum; games.mjs owns APPLE/BALL/SUN first-letter games and CAT/DOG/SUN onset-rime games. Keep activity IDs, story IDs, localStorage namespaces, profiles, progress, and artwork intact. Display legacy generated Karya N titles as Artwork N through gallery.mjs artworkTitle(); do not rewrite custom titles or stored records. Offline updates must download the complete English app and audio before replacing the previous completed cache.
+
+## Phone controls and number painting (22 October 2026)
+The shared responsive stylesheet owns a minimum 44px button touch target up to 950px; Listen again and hint controls use 48px height. The phone header keeps branding and profile tools in two columns with navigation below. Number Paint uses 28-unit SVG digits. Kindergarten wing labels sit outside the decorative spots, while region identities, geometry and stored fill data remain unchanged. The same anchors are used by the player, gallery previews and SVG exports through artContent().
