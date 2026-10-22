@@ -1,0 +1,5 @@
+PIKO AUDIO — ENGLISH EDITION
+
+All active English guides and stories are prerecorded using Microsoft Zira Desktop (en-US), then encoded as MP3 files. The app plays the included files and needs no installed voice, API key, or internet connection after the offline download.
+
+The earlier Indonesian edition used Jessica via ElevenLabs (elevenlabs.io), Free plan, for noncommercial use. Those recordings are not part of this English edition.

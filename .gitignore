@@ -1,0 +1,16 @@
+# Local hosting identity and historical working notes
+.openai/
+docs/
+
+# Credentials, local settings, dependencies and generated packages
+.env
+.env.*
+*.env
+*.pem
+*.key
+node_modules/
+.codex/
+.agents/
+*.zip
+Taman-Main.html
+*.log
