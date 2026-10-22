@@ -1,0 +1,1 @@
+{"name": "Taman Main", "short_name": "Taman Main", "lang": "en", "start_url": "./", "display": "standalone", "background_color": "#fcfaf4", "theme_color": "#38684e", "icons": [{"src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"}], "description": "Play, learn, read, and create together."}
