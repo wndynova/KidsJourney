@@ -62,3 +62,5 @@ The user requested a full English edition before publishing. Keep Taman Main as 
 
 ## Phone controls and number painting (22 October 2026)
 The shared responsive stylesheet owns a minimum 44px button touch target up to 950px; Listen again and hint controls use 48px height. The phone header keeps branding and profile tools in two columns with navigation below. Number Paint uses 28-unit SVG digits. Kindergarten wing labels sit outside the decorative spots, while region identities, geometry and stored fill data remain unchanged. The same anchors are used by the player, gallery previews and SVG exports through artContent().
+
+The mobile touch rules also cover the shared `.button.small` variant, including Finish drawing in both tracing activities. Scoped modal selectors preserve the 48px Listen again and hint controls against the general 44px button rule. These overrides stay in the shared responsive block so every game and completion dialog inherits the same target sizes.
