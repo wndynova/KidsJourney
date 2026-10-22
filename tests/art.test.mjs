@@ -12,6 +12,25 @@ test('number painting rejects a mismatched color and requires every region',()=>
  let s=newArt('number','preschool');const r=s.regions[0];s=artMove(s,{type:'fill',id:r.id,color:artPalette.find(c=>c.id!==r.color).id});assert.equal(s.outcome,'wrong');assert.equal(artComplete(s),false);assert.equal(s.fills[r.id],undefined);
  for(const r of s.regions)s=artMove(s,{type:'fill',id:r.id,color:r.color});assert.equal(artComplete(s),true);
 });
+test('Kindergarten wing numbers remain visible outside the later painted spots',()=>{
+ const state=newArt('number','kindergarten');
+ const spots=state.regions.filter(r=>r.id.startsWith('spot-')).map(r=>{
+  const values=Object.fromEntries([...r.shape.matchAll(/(cx|cy|rx|ry)="([\d.]+)"/g)].map(([,key,value])=>[key,Number(value)]));
+  return {...r,...values};
+ });
+ for(const wing of state.regions.filter(r=>/^(left|right)-(top|bottom)$/.test(r.id))){
+  // Keep the full digit box clear, not only the baseline or center point.
+  const box={left:wing.x-12,right:wing.x+12,top:wing.y-22,bottom:wing.y+6};
+  for(const spot of spots){
+   const x=Math.max(box.left,Math.min(spot.cx,box.right));
+   const y=Math.max(box.top,Math.min(spot.cy,box.bottom));
+   assert.ok(((x-spot.cx)/spot.rx)**2+((y-spot.cy)/spot.ry)**2>1,
+    `${wing.id} number is obscured by ${spot.id}`);
+  }
+ }
+ // Repositioning labels must preserve the identities used by saved pictures.
+ assert.deepEqual(state.regions.map(r=>r.id),newArt('mirror','kindergarten').regions.map(r=>r.id));
+});
 test('free fill accepts any palette color; twin fill colors paired wings',()=>{
  let s=newArt('fill','kindergarten');for(const r of s.regions)s=artMove(s,{type:'fill',id:r.id,color:'blue'});assert.equal(artComplete(s),true);
  s=newArt('mirror','preschool');s=artMove(s,{type:'fill',id:'left-top',color:'red'});assert.equal(s.fills['right-top'],'red');assert.equal(s.fills['left-top'],'red');
