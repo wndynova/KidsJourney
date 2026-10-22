@@ -10,6 +10,7 @@ Business evidence: explicit user decisions in this chat, docs/plan.md, PETUNJUK.
 | Scrollbar | style.css global baseline | DESIGN.md / runtime CSS tokens | platform forced colors | computed style and narrow browser |
 | Toast | app.mjs toast(), #toast live region | existing shared feedback | transient notice | existing UI browser checks |
 | Modal | app.mjs modal()/closeModal() | shared player and profile flow | wide / normal | focus, Escape, inert background |
+| Offline download | sw.js fullRequests(), DOWNLOAD handler; app.mjs downloadOffline() | complete staged English app and audio before replacement | first download / redownload / failed update | tests/offline.test.mjs; browser redownload after audio playback |
 | Select/Listbox | existing native selects | existing family and art settings | native, platform-owned popup | existing browser checks; no new select here |
 
 My Adventures reads existing local state and performs no write when viewed. Repeated play counts once in completed-activity totals. Category bars contain only the selected level's activities. A story counts once per profile. Art completions are a subset of games. The Keep playing button uses the existing three-step journey, while recommendation cards open individual activities.

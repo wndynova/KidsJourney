@@ -66,3 +66,6 @@ The shared responsive stylesheet owns a minimum 44px button touch target up to 9
 The mobile touch rules also cover the shared `.button.small` variant, including Finish drawing in both tracing activities. Scoped modal selectors preserve the 48px Listen again and hint controls against the general 44px button rule. These overrides stay in the shared responsive block so every game and completion dialog inherits the same target sizes.
 
 Opening a modal clears the previous screen's transient toast and its dismissal timer. New status messages raised inside the modal still appear; noninteractive toasts never intercept pointer input. This prevents a recent level-change message from covering a game's lower controls.
+
+## Offline updates (23 October 2026)
+The service worker requests full resources with HTTP cache mode `reload` when staging an offline package. This avoids partial media responses left by playback while preserving the site's deployment subpath. The complete replacement and its marker must exist before the old package is removed. Failure diagnostics identify the download phase and underlying cause in the developer console; the child-facing flow keeps its existing friendly messages.
