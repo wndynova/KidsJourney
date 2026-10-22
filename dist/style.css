@@ -39,6 +39,7 @@
 @media(prefers-reduced-motion:reduce){.gallery-card{transition:none}.gallery-card:hover{transform:none}}
 
 /* Shared touch targets for the phone and tablet layouts. */
+#toast{pointer-events:none}
 @media(max-width:950px){
  :is(.header,.main,.modal,.footer) button{min-width:44px;min-height:44px}
  :is(.header,.main,.modal,.footer) .button.small{min-height:44px}
