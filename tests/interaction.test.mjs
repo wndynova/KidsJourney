@@ -1,0 +1,5 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {newMiniGame,miniMove} from '../dist/games.mjs';
+test('dropping one fruit adds exactly one and ignores invalid drop targets',()=>{let s=newMiniGame('fruit','preschool');s=miniMove(s,{type:'drop',value:'apple',target:'blender'});assert.equal(s.count,1);s=miniMove(s,{type:'drop',value:'apple',target:'outside'});assert.equal(s.count,1)});
+test('shape drops match atomically without a prior selection',()=>{let s=newMiniGame('match','preschool');s=miniMove(s,{type:'drop',value:'triangle',target:'circle'});assert.equal(s.outcome,'wrong');assert.equal(s.matched.length,0);s=miniMove(s,{type:'drop',value:'triangle',target:'triangle'});assert.deepEqual(s.matched,['triangle']);s=miniMove(s,{type:'drop',value:'triangle',target:'triangle'});assert.equal(s.matched.length,1)});
+test('word drops require correct tile and correct next slot',()=>{let s=newMiniGame('word','kindergarten');s=miniMove(s,{type:'drop',value:'C',target:'1'});assert.equal(s.step,0);s=miniMove(s,{type:'drop',value:'C',target:'0'});assert.equal(s.step,1);s=miniMove(s,{type:'drop',value:'AT',target:'1'});assert.equal(s.round,1)});
